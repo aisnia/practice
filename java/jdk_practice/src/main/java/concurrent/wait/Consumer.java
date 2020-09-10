@@ -1,4 +1,4 @@
-package concurrent.pool.wait;
+package concurrent.wait;
 
 /**
  * @author xiaoqiang

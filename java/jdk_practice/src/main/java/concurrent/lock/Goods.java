@@ -1,4 +1,4 @@
-package concurrent.pool.lock;
+package concurrent.lock;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;

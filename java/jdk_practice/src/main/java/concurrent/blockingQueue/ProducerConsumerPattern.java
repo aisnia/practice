@@ -1,7 +1,6 @@
-package concurrent.pool.blockingQueue;
+package concurrent.blockingQueue;
 
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
