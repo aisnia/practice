@@ -8,6 +8,10 @@ import (
 )
 
 func main() {
+	/*listen, err := net.ListenTCP("tcp", &net.TCPAddr{
+		IP:   net.IPv4(0, 0, 0, 0),
+		Port: 30000,
+	})*/
 	listen, err := net.Listen("tcp", "127.0.0.1:20000")
 	if err != nil {
 		fmt.Println("Listen failed by port 20000", err)
