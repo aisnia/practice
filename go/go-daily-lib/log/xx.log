@@ -1,0 +1,2 @@
+2020/09/17 19:52:48.512824 D:/aisnia/practice/go/go-daily-lib/log/fileDemo.go:18: 一条普通的日志
+[xiaoqiang]2020/09/17 19:52:48.533783 D:/aisnia/practice/go/go-daily-lib/log/fileDemo.go:20: 这是加了前缀的日志
