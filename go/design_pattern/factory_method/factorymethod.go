@@ -40,8 +40,28 @@ func (p *PlusOperator) Result() int {
 //PlusOperatorFactory 是 PlusOperator 的工厂类
 type PlusOperatorFactory struct{}
 
+//创建自己的一个复制
 func (PlusOperatorFactory) Create() Operator {
 	return &PlusOperator{
 		OperatorBase: &OperatorBase{},
 	}
+}
+
+type MinusOperator struct {
+	*OperatorBase
+}
+
+//创建
+
+//获取结果
+func (m *MinusOperator) Result() int {
+	//获取结果减法
+	return m.a - m.b
+}
+
+type MinusOperatorFactory struct {
+}
+
+func (m MinusOperatorFactory) Create() Operator {
+	return &MinusOperator{}
 }
