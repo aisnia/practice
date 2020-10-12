@@ -1,0 +1,455 @@
+
+  
+
+ 
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<head id="headerid1">
+	<base target='_self'>
+	<title>学生个人考试成绩</title>	
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="keywords" content="湖南强智科技教务系统">
+	<meta http-equiv="description" content="湖南强智科技教务系统">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+<script type="text/javascript" src="/jsxsd/js/jquery-min.js" language="javascript" ></script>
+<script type="text/javascript" src="/jsxsd/js/common.js" language="javascript" ></script>
+<script type="text/javascript" src="/jsxsd/js/iepngfix_tilebg.js" language="javascript" ></script>
+<script type="text/javascript" src="/jsxsd/js/easyui/jquery.easyui.min.js" language="javascript" ></script>
+<script type="text/javascript" src="/jsxsd/js/jquery.autocomplete.min.js" language="javascript" ></script>
+<link href="/jsxsd/framework/images/common.css" rel="stylesheet" type="text/css" />
+<link href="/jsxsd/framework/images/blue.css" rel="stylesheet" type="text/css" id="link_theme" />
+<link href="/jsxsd/framework/images/workstation.css" rel="stylesheet" type="text/css" /> 
+<link href="/jsxsd/css/easyui.css" rel="stylesheet" type="text/css" />
+<link href="/jsxsd/css/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
+</head>
+<iframe id="notSession" name="notSession" style="display: none;" src=""></iframe>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	window.setInterval(function(){
+		 document.getElementById("notSession").src = "/jsxsd/framework/blankPage.jsp";
+	 }, 1000 * 60 * 10);
+});
+</script>
+
+<!--  -->
+<div  >   
+	<!-- <div class="Nsb_r_title"><a href="/jsxsd/framework/main.jsp"">首页</a> » 考试成绩 » 课程成绩查询 » 查询列表</div>
+	<input type="button" id="btn_back" class="button" value="返 回" onclick="window.location.href='/jsxsd/kscj/cjcx_query';"/> -->
+
+
+	查询条件：开课时间【2019-2020-2】&nbsp;&nbsp; 	  
+	<!--
+		user:promition fucecode="NEW_XSD_XJCJ_WDCJ_KCCJCX_XSCJKDY">
+			<input type="button" id="btn_xscjk" value="学生成绩卡  " onclick="printXscjk(1);" class="button el-button"/>
+		/user:promition>
+		user:promition fucecode="NEW_XSD_XJCJ_WDCJ_KCCJCX_BJGXSCJKDY">
+			<input type="button" id="btn_bjgxscjk" value="不及格学生成绩卡  " onclick="printXscjk(2);"   class="button el-button"/>
+		/user:promition>
+		-->
+	
+	
+		 	
+			
+		
+		 
+	
+
+
+
+
+
+				
+	<table id="dataList" width="100%" border="0" cellspacing="0" cellpadding="0" class="Nsb_r_list Nsb_table">
+		<tr>
+			<th class="Nsb_r_list_thb" style="width: 35px;">序号</th>
+			<th class="Nsb_r_list_thb" style="width: 140px;">开课学期</th>
+			<th class="Nsb_r_list_thb" style="width: 110px;">课程编号</th>
+			<th class="Nsb_r_list_thb" style="width: 110px;">课程名称</th>
+			<th class="Nsb_r_list_thb" style="width: 110px;">分组名</th>
+			<th class="Nsb_r_list_thb" style="width: 50px;">
+			 成绩</th>
+
+			
+			
+			<th class="Nsb_r_list_thb" style="width: 60px;">修读方式</th>
+			
+			<th class="Nsb_r_list_thb" style="width: 50px;">成绩标识</th>			
+			<th class="Nsb_r_list_thb" style="width: 50px;">学分</th>
+			<th class="Nsb_r_list_thb" style="width: 50px;">总学时</th>
+			<th class="Nsb_r_list_thb" style="width: 50px;">绩点</th>
+			<th class="Nsb_r_list_thb" style="width: 110px;">补重学期</th>
+			<th class="Nsb_r_list_thb" style="width: 60px;">考核方式</th>
+			<th class="Nsb_r_list_thb" style="width: 60px;">考试性质</th>
+			<th class="Nsb_r_list_thb" style="width: 60px;">课程属性</th>
+			<th class="Nsb_r_list_thb" style="width: 80px;">课程性质</th>
+			
+				<th class="Nsb_r_list_thb" style="width: 80px;">课程类别</th>
+			
+		</tr>
+		
+		<tr>
+			<td>1</td>
+			<td>2019-2020-2</td>
+			<td align="left">0812001100</td>
+			<td align="left">软件项目管理及案例</td>
+			<td align="left"></td>
+			<!-- 控制成绩显示 -->
+			<td style=" ">
+					<a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=201700005816&jx0404id=20192020200107480&cj0708id=CC0210FBF22A404B9295BC89E457BEE2&zcj=80',700,500)">80</a>
+			</td></td>
+			<td>主修</td>
+			<td></td>
+			<td>2</td>
+			<td>32</td>
+			<!-- 控制绩点显示 -->
+			<td>3</td>
+			<td></td>
+			<td>考查</td>
+			<td>正常考试</td>
+			<td>必修</td>
+			<td>专业课</td>
+			
+			<td></td>
+			
+		</tr>
+		
+		<tr>
+			<td>2</td>
+			<td>2019-2020-2</td>
+			<td align="left">0812001110</td>
+			<td align="left">软件工程经济学</td>
+			<td align="left"></td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" ">
+
+
+			
+				
+					<a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=201700005816&jx0404id=20192020200107504&cj0708id=ADC21DCD6769452FB10DDE1011419318&zcj=88',700,500)">88</a>
+				
+				
+			
+			
+
+			
+			
+			</td></td>
+				     
+				 
+			
+			
+
+			
+			
+			<td>主修</td>
+			
+			<td></td>
+			<td>1.5</td>
+			<td>24</td>
+			
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td>3.7</td>
+				     
+				 
+			
+			
+			<td></td>
+			<td>考试</td>
+			<td>正常考试</td>
+			<td>必修</td>
+			<td>专业课</td>
+			
+			<td></td>
+			
+		</tr>
+		
+		<tr>
+			<td>3</td>
+			<td>2019-2020-2</td>
+			<td align="left">0812002395</td>
+			<td align="left">编译原理</td>
+			<td align="left"></td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" ">
+
+
+			
+				
+					<a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=201700005816&jx0404id=20192020200107474&cj0708id=75C8185D8DC84B4BA3E7E03F2282E36A&zcj=78',700,500)">78</a>
+				
+				
+			
+			
+
+			
+			
+			</td></td>
+				     
+				 
+			
+			
+
+			
+			
+			<td>主修</td>
+			
+			<td></td>
+			<td>2</td>
+			<td>32</td>
+			
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td>3</td>
+				     
+				 
+			
+			
+			<td></td>
+			<td>考试</td>
+			<td>正常考试</td>
+			<td>限选</td>
+			<td>专业课</td>
+			
+			<td></td>
+			
+		</tr>
+		
+		<tr>
+			<td>4</td>
+			<td>2019-2020-2</td>
+			<td align="left">0812003150</td>
+			<td align="left">专业实训</td>
+			<td align="left"></td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" ">
+
+
+			
+				
+					<a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=201700005816&jx0404id=20192020200102783&cj0708id=562C2C38ED4E44AAAB713D4411523DF3&zcj=90',700,500)">90</a>
+				
+				
+			
+			
+
+			
+			
+			</td></td>
+				     
+				 
+			
+			
+
+			
+			
+			<td>主修</td>
+			
+			<td></td>
+			<td>3</td>
+			<td>3</td>
+			
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td>4</td>
+				     
+				 
+			
+			
+			<td></td>
+			<td>考查</td>
+			<td>正常考试</td>
+			<td>必修</td>
+			<td>其它</td>
+			
+			<td></td>
+			
+		</tr>
+		
+		<tr>
+			<td>5</td>
+			<td>2019-2020-2</td>
+			<td align="left">0812003160</td>
+			<td align="left">人工智能概论</td>
+			<td align="left"></td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" ">
+
+
+			
+				
+					<a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=201700005816&jx0404id=20192020200107478&cj0708id=6E4654553DCE4702B5A02D7E1CF32C64&zcj=76',700,500)">76</a>
+				
+				
+			
+			
+
+			
+			
+			</td></td>
+				     
+				 
+			
+			
+
+			
+			
+			<td>主修</td>
+			
+			<td></td>
+			<td>2</td>
+			<td>32</td>
+			
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td>2.7</td>
+				     
+				 
+			
+			
+			<td></td>
+			<td>考试</td>
+			<td>正常考试</td>
+			<td>限选</td>
+			<td>专业基础课</td>
+			
+			<td></td>
+			
+		</tr>
+		
+		<tr>
+			<td>6</td>
+			<td>2019-2020-2</td>
+			<td align="left">1201100175</td>
+			<td align="left">英语听说写译综合</td>
+			<td align="left"></td>
+			<!-- 控制成绩显示 -->
+			
+				  
+				     
+				    
+			<td style=" ">
+
+
+			
+				
+					<a href="javascript:openWindow('/jsxsd/kscj/pscj_list.do?xs0101id=201700005816&jx0404id=20192020200107460&cj0708id=7A9433256EB749FBA63E8DE69D144B4C&zcj=91',700,500)">91</a>
+				
+				
+			
+			
+
+			
+			
+			</td></td>
+				     
+				 
+			
+			
+
+			
+			
+			<td>主修</td>
+			
+			<td></td>
+			<td>1</td>
+			<td>16</td>
+			
+			<!-- 控制绩点显示 -->
+			
+				  
+				     
+				    
+			<td>4</td>
+				     
+				 
+			
+			
+			<td></td>
+			<td>考查</td>
+			<td>正常考试</td>
+			<td>限选</td>
+			<td>公共课</td>
+			
+			<td></td>
+			
+		</tr>
+		
+		
+		
+		
+		
+	</table>
+	
+		<form action="" method="post" name="Form1" id="Form1"></form>
+</div>
+<br />
+<!--   -->
+<script language="javascript">
+
+//合并学年学期列
+//jQuery("#dataList").rowspan(1);
+</script>
+<script language="javascript">
+
+	function printXscjk(type){
+		document.Form1.action = "/jsxsd/kscj/printXscjk?dytype_11437="+type;
+		document.Form1.target = "hidfrm";
+		document.Form1.submit();
+		document.Form1.target="";
+	}
+
+function queren() {  
+	$.ajax({
+        type : "GET",
+        async:false,
+        url : "/jsxsd/kscj/cjcx_list_qr",
+        data : "",
+        dataType: "json",
+        success : function(msg) {
+        	    alert('确认成功！');
+	           $("#btn_query").prop("disabled","disabled");
+	           $("#btn_query").val("已确认");
+	   }
+    });
+}
+
+loadjs();
+function loadjs(){
+if( ''!=''){
+alert('');
+}
+}
+</script>

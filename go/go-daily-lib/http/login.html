@@ -1,0 +1,265 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录</title>
+
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<style>
+    .QRcodeSkip {
+        width: 80px;
+        height: 70px;
+        position: absolute;
+        visibility: inherit;
+        right: 17.5%;
+        cursor: pointer;
+    }
+
+    .QRcode {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        visibility: inherit;
+        right: 21%;
+        top: 30%;
+    }
+</style>
+<body class="login_bg">
+<div id="login_content">
+    <div class="login_logo">
+        <img class="img-responsive" src="/css/images/login_logo.png">
+    </div>
+    <div class="login_box">
+        <div class="box_left">
+
+            <img class="img-responsive" src="/css/images/login_icon.png">
+
+        </div>
+        <!-- 二维码跳转图片 -->
+        <div class="QRcodeSkip" id="QRcodeSkip" style="display: none;">
+            <img onclick="QRcodeFun(1)" alt="加载失败" height="70" width="80" src="/css/images/showCode.png">
+        </div>
+        <div class="box_right" style="">
+            <form id="loginForm" name="loginForm" action="/Logon.do?method=logon" method="post">
+                <ul id="ul1">
+                    <li class="box_bt"><img class="img-responsive" src="/css/images/user_icon.png"
+                                            style="float:left;margin:8px 8px 0 0">用户登录
+                    </li>
+                    <li class="input-group input_li">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" class="form-control" id="userAccount" name="userAccount" placeholder="请输入账号"
+                               value="" autofocus>
+                    </li>
+                    <li class="input-group input_li">
+                        <span class="input-group-addon" id="basic-addon1"><i
+                                    class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control" id="userPassword" name="userPassword"
+                               placeholder="请输入密码" value="">
+                    </li>
+
+
+                    <li class="input-group input_li">
+                        <a href="/findmm.jsp" target="_blank" style="font-size:16px">忘记密码</a>
+                    </li>
+
+                    <!-- 			 			<li class="input-group input_li"> -->
+                    <!-- 							  <input type="checkbox" name="vehicle">记住密码 -->
+                    <!-- 							  <a class="forget">忘记密码</a> -->
+                    <!-- 			 			</li> -->
+                    <li class="input_li">
+
+                        <button type="button" class="btn btn-primary login_btn" onclick="login()">登&nbsp;&nbsp;&nbsp;录
+                        </button>
+
+                    </li>
+                    <li class="input_li" style="color: red; margin-bottom: 0;height: 10px;">
+                        &nbsp;<font color="red">温馨提示：推荐使用IE9以上浏览器以及360极速模式。</font><br>
+
+                    </li>
+                    <li class="input_li" style="color: red; margin-bottom: 0;height: 10px;">
+                        <font color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            推荐在分辨率1920*1080下使用最佳。</font>
+                    </li>
+                    <li class="input_li" id="showMsg" style="color: red; margin-bottom: 0;">
+                        &nbsp;
+                    </li>
+                </ul>
+                <!-- 二维码展示层 -->
+                <ul id="ul2" style="display: none;">
+                    <li class="box_bt">
+                        <p class="u9">APP下载
+                            <span style="font-size: 13px;cursor: pointer;text-align: right;float: right;"
+                                  onclick="QRcodeFun(2)">
+				 					<img alt="加载失败" height="13" width="13" src="/css/images/ret.png">
+				 					返回登录
+			 					</span>
+                        </p>
+                    </li>
+                    <li class="input_li" style="text-align: center;">
+                        <center><img class="img-responsive" alt="加载失败" height="300" width="300"
+                                     src="/css/images/codeFrame.png"></center>
+                    </li>
+                    <li class="input_li" style=" margin-bottom: 0;height: 15.5px;">
+                        <center>扫描二维码 下载APP</center>
+                    </li>
+                </ul>
+                <input name="encoded" id="encoded" type="hidden" value=""/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer>Copyright © 2017.湖南强智科技发展有限公司(s5.7_8_63)</footer>
+
+
+<script src="/framework/commonJs/jquery.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/jspublic.js"></script>
+<script type="text/javascript" src="/framework/commonJs/jquery.min.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+    //$("#zhmm").click(function(){
+    //   JsMod('/findmm.jsp',450,200);
+    //})
+    //是否启用APP下载二维码
+
+    function ReShowCode() {
+        var SafeCodeImg = document.getElementById("SafeCodeImg");
+        var url = "/verifycode.servlet?t=" + Math.random();
+        SafeCodeImg.src = url;
+    }
+
+    function login() {
+        if ($("#userAccount").val() == "") {
+            $("#showMsg").text("请输入账号");
+            $("#userAccount").focus();
+            return false;
+        }
+        if ($("#userPassword").val() == "") {
+            $("#showMsg").text("请输入密码");
+            $("#userPassword").focus();
+            return false;
+        }
+
+
+        var strUrl = "/Logon.do?method=logon&flag=sess";
+
+        $.ajax({
+            url: strUrl,
+            type: "post",
+            cache: false,
+            dataType: "text",
+            success: function (dataStr) {
+                if (dataStr == "no") {
+                    return false;
+                } else {
+                    var scode = dataStr.split("#")[0];
+                    var sxh = dataStr.split("#")[1];
+                    var code = document.getElementById("userAccount").value + "%%%" + document.getElementById("userPassword").value;
+                    var encoded = "";
+                    for (var i = 0; i < code.length; i++) {
+                        if (i < 20) {
+                            encoded = encoded + code.substring(i, i + 1) + scode.substring(0, parseInt(sxh.substring(i, i + 1)));
+                            scode = scode.substring(parseInt(sxh.substring(i, i + 1)), scode.length);
+                        } else {
+                            encoded = encoded + code.substring(i, code.length);
+                            i = code.length;
+                        }
+                    }
+                    document.getElementById("encoded").value = encoded;
+                    if ("logon" != "logonLdap") {
+                        document.getElementById("userPassword").value = "";
+                    }
+
+                    document.getElementById("loginForm").submit();
+                }
+            },
+            error: function () {
+                alert("计算异常！");
+            }
+        });
+    }
+
+    $(function () {
+        $(document).on("keyup", function (e) {
+            if (e.keyCode == 13) {
+                login();
+            }
+        });
+    });
+
+    /***
+     *切换验证码
+     **/
+    function QRcodeFun(type) {
+        if ("1" == type) {
+            $("#ul1").hide();
+            $("#ul2").show();
+            $("#QRcodeSkip").hide();
+        } else {
+            $("#ul2").hide();
+            $("#ul1").show();
+            $("#QRcodeSkip").show();
+        }
+
+    }
+
+    function fsyzm() {
+        if ($("#userAccount").val() == "") {
+            $("#showMsg").text("请输入账号");
+            $("#userAccount").focus();
+            return false;
+        }
+        if ($("#userPassword").val() == "") {
+            $("#showMsg").text("请输入密码");
+            $("#userPassword").focus();
+            return false;
+        }
+        var strUrl = "/Logon.do?method=logonByDxfz&userAccount=" + $("#userAccount").val() + "&userPassword=" + $("#userPassword").val();
+        $.ajax({
+            url: strUrl,
+            type: "post",
+            cache: false,
+            dataType: "text",
+            success: function (dataStr) {
+                if (dataStr == "no") {
+                    return false;
+                } else {
+                    if (dataStr.length > 4) {
+                        alert(dataStr);
+                    } else {
+                        document.getElementById("yzmyc").value = dataStr;
+                    }
+                }
+            },
+            error: function () {
+                alert("计算异常！");
+            }
+        });
+        var bt01 = document.getElementById("bt01");
+        document.getElementById("sfgq").value = "0";
+        bt01.disabled = true;  //当点击后倒计时时候不能点击此按钮
+        var time = 60;  //倒计时60秒
+        var timer = setInterval(fun1, 1000);  //设置定时器
+        function fun1() {
+            time--;
+            if (time >= 0) {
+                bt01.value = time + "s后重新发送";
+            } else {
+                bt01.value = "重新发送验证码";
+                bt01.disabled = false;  //倒计时结束能够重新点击发送的按钮
+                document.getElementById("yzmyc").value = ""; // 清除验证码
+                document.getElementById("sfgq").value = "1"; //验证码是否过期
+                clearTimeout(timer);  //清除定时器
+                time = 60;  //设置循环重新开始条件
+            }
+        }
+    }
+
+</script>
