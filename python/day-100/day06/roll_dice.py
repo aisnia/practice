@@ -25,8 +25,6 @@ def foo():
 def foo():
     print('goodbye, world!')
 
-
-
 if __name__ == "__main__":
     # 下面的代码会输出什么呢？
     foo()
